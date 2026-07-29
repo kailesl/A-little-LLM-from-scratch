@@ -40,7 +40,7 @@ def get_txt_files(folder):
                 )
         return txt_files
 def iter_text():
-    data_folder="D:/全自研llm-dataset"
+    data_folder=""
     files=get_txt_files(data_folder)
     data_len=len(files)
     max_bytes=1024*1024*1024//data_len
@@ -70,5 +70,5 @@ def iter_text():
 tokenizer.train_from_iterator(iter_text(),trainer=trainer)
 
 tokenizer.save(
-    "F:/ai/python_ai/全自研llm/tokenizer/vocab/tokenizer.json"
+    ""
 )
