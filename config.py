@@ -1,7 +1,7 @@
 import sys
-sys.path.append("F:/ai/python_ai/llm/tokenizer")
+sys.path.append("=")
 from tokenizer import mytokenizer
-tokenizer=mytokenizer("F:/ai/python_ai/llm/tokenizer/vocab/tokenizer.json")
+tokenizer=mytokenizer("=")
 class modelconfig:
     def __init__(self):
         #tokenizer
