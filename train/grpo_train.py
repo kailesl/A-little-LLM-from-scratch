@@ -8,9 +8,9 @@ import json
 import torch.nn.functional as F
 import torch.nn as nn
 
-sys.path.append("/root/autodl-tmp/.autodl/llm/model(transformer)")
-sys.path.append("/root/autodl-tmp/.autodl/llm/tokenizer")
-sys.path.append("/root/autodl-tmp/.autodl/llm")
+sys.path.append("")
+sys.path.append("")
+sys.path.append("")
 
 from torch.utils.data import IterableDataset
 from torch.utils.data import DataLoader
@@ -19,7 +19,7 @@ from tokenizer import mytokenizer
 from config import modelconfig
 
 config=modelconfig()
-tokenizer=mytokenizer("/root/autodl-tmp/.autodl/llm/tokenizer/vocab/tokenizer.json")
+tokenizer=mytokenizer("")
 
 def get_txt_files(folder):
     txt_files=[]
@@ -332,7 +332,7 @@ def train(epoch_num,sft_resume,rl_resume=None):
     
     device="cuda" if torch.cuda.is_available() else "cpu"
     scaler=torch.amp.GradScaler("cuda")
-    files=get_txt_files("/root/autodl-tmp/.autodl/data")
+    files=get_txt_files("")
     
     vocab_size=config.vocab_size
     model=Transformer(config).to(device)
@@ -425,10 +425,10 @@ def train(epoch_num,sft_resume,rl_resume=None):
                     "optimizer":optimizer.state_dict(),
                     "step":step
                 },
-                f"/root/autodl-tmp/.autodl/checkpoints/GRPO-epoch{epoch}-step{step}.pth"
+                f""
             )
                     
-        with open("/root/autodl-tmp/.autodl/checkpoints/GRPO-loss.json","w") as f:#以写入模式打开，如果文件不存在就创建
+        with open("","w") as f:#以写入模式打开，如果文件不存在就创建
             json.dump(loss_record,f)#写入json文件
         epoch_loss=epoch_loss/(step+1)
         
@@ -441,8 +441,8 @@ def train(epoch_num,sft_resume,rl_resume=None):
             "optimizer":optimizer.state_dict(),
             "step":step
         },
-        f"/root/autodl-tmp/.autodl/checkpoints/GRPO-last-checkpoint.pth"
+        f""
     )#所有epoch跑完进行记录checkpoints
             
 if __name__ == "__main__":
-    train(2,sft_resume="/root/autodl-tmp/.autodl/checkpoints/minimind-dataset-sft-checkpoints.pth")
+    train(2,sft_resume="")
