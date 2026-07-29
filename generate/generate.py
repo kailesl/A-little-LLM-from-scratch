@@ -3,15 +3,15 @@ import torch.nn.functional as F
 import torch as torch
 import time
 
-sys.path.append("F:/ai/python_ai/llm/model(transformer)")
-sys.path.append("F:/ai/python_ai/llm/tokenizer")
-sys.path.append("F:/ai/python_ai/llm")
+sys.path.append("")
+sys.path.append("")
+sys.path.append("")
 
 from config import modelconfig
 from model_me import Transformer
 from tokenizer import mytokenizer
 
-tokenizer=mytokenizer("F:/ai/python_ai/llm/tokenizer/vocab/tokenizer.json")
+tokenizer=mytokenizer("")
 config=modelconfig()
 
 def load_checkpoint(path,model,optimizer,device):
@@ -32,7 +32,7 @@ def generate(temperature,top_k):
     optimizer=torch.optim.AdamW(model.parameters(),lr=1e-5,weight_decay=0.01)
     #读取checkpoints
     epoch,step=load_checkpoint(
-        "X:/A checkpoints Hub/Genesis test v0(2026.7.9)/A-grpotrain-checkpoints/GRPO-epoch1-step799.pth",
+        "",
         model,
         optimizer,
         device
