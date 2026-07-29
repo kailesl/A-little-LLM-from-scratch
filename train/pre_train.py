@@ -9,9 +9,9 @@ import random
 import time
 import json
 
-sys.path.append("/root/autodl-tmp/llm/model(transformer)")
-sys.path.append("/root/autodl-tmp/llm/tokenizer")
-sys.path.append("/root/autodl-tmp/llm")
+sys.path.append("")
+sys.path.append("")
+sys.path.append("")
 
 from torch.utils.data import IterableDataset
 from torch.utils.data import DataLoader
@@ -20,7 +20,7 @@ from tokenizer import mytokenizer
 from config import modelconfig
 
 config=modelconfig()
-tokenizer=mytokenizer("/root/autodl-tmp/llm/tokenizer/vocab/tokenizer.json")
+tokenizer=mytokenizer("")
 
 def get_txt_files(folder):
     txt_files=[]
@@ -127,7 +127,7 @@ def train(epoch_num,resume):
     scaler=torch.amp.GradScaler("cuda")
     #读取文件夹
     files=get_txt_files(
-        "/root/autodl-tmp/llm-dataset"
+        ""
     )
     
     #dataset处理
@@ -181,7 +181,7 @@ def train(epoch_num,resume):
                     "optimizer":optimizer.state_dict(),
                     "step":step
                 },
-                f"/root/autodl-tmp/llm/checkpoints/ckpt_epoch{epoch}_step{step}.pth"
+                f""
             )
         epoch_loss=epoch_loss/(step+1)
         print(f"epoch_loss={epoch_loss:.4f}")
@@ -192,11 +192,11 @@ def train(epoch_num,resume):
             "optimizer":optimizer.state_dict(),
             "step":step
         },
-        f"/root/autodl-tmp/llm/checkpoints/ckpt_epoch_last_step_last.pth"
+        f""
     )
             
 if __name__ == "__main__":
-    train(4,resume="/root/autodl-tmp/llm/checkpoints/ckpt_epoch1_step0.pth")
+    train(4,resume="")
 #注释代码区
 
 #data切块
@@ -238,7 +238,7 @@ if __name__ == "__main__":
     #                     "optimizer":optimizer.state_dict(),
     #                     "step":step
     #                 },
-    #                 f"G:/ai/checkpoints/gpt-13m-200mtoken-2026.6.6/ckpt_epoch{epoch}_step{step}.pth"
+    #                 f""
     #             )
     
     # #读取文件
