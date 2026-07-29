@@ -1,7 +1,7 @@
 import sys
-sys.path.append("=")
+sys.path.append("")
 from tokenizer import mytokenizer
-tokenizer=mytokenizer("=")
+tokenizer=mytokenizer("")
 class modelconfig:
     def __init__(self):
         #tokenizer
